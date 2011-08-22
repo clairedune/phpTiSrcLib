@@ -17,9 +17,12 @@
  *
  * \section install How to install this library ?
  *
- * \subsection install_step1 Step 1 : simply copy the folder phpTiSrcLib in your www folder
+ * \subsection install_gd Step 1 : make sure that the library gd is activated 
+ * For instance, with easyPhp,configuration—>extension php--->php gd2  
  *
- * \subsection install_step2 Step 2 : include the file you need in your php header
+ * \subsection install_step1 Step 2 : simply copy the folder phpTiSrcLib in your www folder
+ *
+ * \subsection install_step3 Step 3 : include the file you need in your php header
  *
  * \code
  * include('phpTiSrc/src/srcImageLib.php');
