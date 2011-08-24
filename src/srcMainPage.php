@@ -25,7 +25,9 @@
  * \subsection install_step3 Step 3 : include the file you need in your php header
  *
  * \code
- * include('phpTiSrc/src/srcImageLib.php');
+ * include('phpTiSrcLib/conf/config.php');
+ * include('src/srcImage.php');
+ * etc ... 
  * \endcode 
  *
  * \section documentation Where can I fing the documentation ? 
