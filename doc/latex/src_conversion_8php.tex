@@ -1,0 +1,198 @@
+\hypertarget{src_conversion_8php}{
+\section{src/src\-Conversion.php \-File \-Reference}
+\label{src_conversion_8php}\index{src/src\-Conversion.\-php@{src/src\-Conversion.\-php}}
+}
+
+
+\-This files contains function to convert an image table from one color mode to another.  
+
+
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{src_conversion_8php_a9d507ec8fad6975eb365fe5524596296}{convert\-Rgb2\-Yuv} (\$\-Trgb)
+\begin{DoxyCompactList}\small\item\em \-Convert a table that represents a \-R\-G\-B image into a table that represents a \-Y\-U\-V image. \end{DoxyCompactList}\item 
+\hyperlink{src_conversion_8php_a3f02fa9c92cdb6e3d6051247f8590eec}{convert\-Yuv2\-Rgb} (\$\-Y)
+\begin{DoxyCompactList}\small\item\em \-Convert a table that represents a \-Y\-U\-V image into a table that represents a \-R\-G\-B image. \end{DoxyCompactList}\item 
+\hyperlink{src_conversion_8php_a8af5da8271cf7dce077cc4c83913a05a}{convert\-Rgb2\-Grey\-Naive} (\$\-Trgb)
+\begin{DoxyCompactList}\small\item\em convert a rgb ressource image into a greyscale image \end{DoxyCompactList}\item 
+\hyperlink{src_conversion_8php_ae7ea863aeec0e4ef860ba729dab60b12}{convert\-Rgb2\-Grey\-Gamma} (\$\-Trgb)
+\begin{DoxyCompactList}\small\item\em \-Convert a rgb ressource image into a greyscale image with a gamma correction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-This files contains function to convert an image table from one color mode to another. \begin{DoxyDate}{\-Date}
+21/08/2011 
+\end{DoxyDate}
+\begin{DoxyAuthor}{\-Author}
+\-Claire \-Dune, \-Jean \-René \-Tozza 
+\end{DoxyAuthor}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{src_conversion_8php_ae7ea863aeec0e4ef860ba729dab60b12}{
+\index{src\-Conversion.\-php@{src\-Conversion.\-php}!convert\-Rgb2\-Grey\-Gamma@{convert\-Rgb2\-Grey\-Gamma}}
+\index{convert\-Rgb2\-Grey\-Gamma@{convert\-Rgb2\-Grey\-Gamma}!srcConversion.php@{src\-Conversion.\-php}}
+\subsubsection[{convert\-Rgb2\-Grey\-Gamma}]{\setlength{\rightskip}{0pt plus 5cm}convert\-Rgb2\-Grey\-Gamma (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-Trgb}
+\end{DoxyParamCaption}
+)}}
+\label{src_conversion_8php_ae7ea863aeec0e4ef860ba729dab60b12}
+
+
+\-Convert a rgb ressource image into a greyscale image with a gamma correction. 
+
+\begin{DoxyAuthor}{\-Author}
+\-Claire \-Dune 
+\end{DoxyAuthor}
+\begin{DoxyDate}{\-Date}
+21/08/2011
+\end{DoxyDate}
+\-This function convert an \-R\-G\-B image to a greyscale image with a gamma correction. \-For every pixels in \-R\-G\-B mode, compute the corresponding greyscale value\-:\par
+ \hypertarget{src_conversion_8php_a8af5da8271cf7dce077cc4c83913a05a}{
+\index{src\-Conversion.\-php@{src\-Conversion.\-php}!convert\-Rgb2\-Grey\-Naive@{convert\-Rgb2\-Grey\-Naive}}
+\index{convert\-Rgb2\-Grey\-Naive@{convert\-Rgb2\-Grey\-Naive}!srcConversion.php@{src\-Conversion.\-php}}
+\subsubsection[{convert\-Rgb2\-Grey\-Naive}]{\setlength{\rightskip}{0pt plus 5cm}convert\-Rgb2\-Grey\-Naive (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-Trgb}
+\end{DoxyParamCaption}
+)}}
+\label{src_conversion_8php_a8af5da8271cf7dce077cc4c83913a05a}
+
+
+convert a rgb ressource image into a greyscale image 
+
+\begin{DoxyAuthor}{\-Author}
+\-Claire \-Dune 
+\end{DoxyAuthor}
+\begin{DoxyDate}{\-Date}
+21/08/2011
+\end{DoxyDate}
+\-This function uses the following naive algorithm. \-For every pixels in \-R\-G\-B mode, compute the average values of the \-R,\-G,\-B componants and set the destination pixel values to this average value\-:\par
+ \hypertarget{src_conversion_8php_a9d507ec8fad6975eb365fe5524596296}{
+\index{src\-Conversion.\-php@{src\-Conversion.\-php}!convert\-Rgb2\-Yuv@{convert\-Rgb2\-Yuv}}
+\index{convert\-Rgb2\-Yuv@{convert\-Rgb2\-Yuv}!srcConversion.php@{src\-Conversion.\-php}}
+\subsubsection[{convert\-Rgb2\-Yuv}]{\setlength{\rightskip}{0pt plus 5cm}convert\-Rgb2\-Yuv (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-Trgb}
+\end{DoxyParamCaption}
+)}}
+\label{src_conversion_8php_a9d507ec8fad6975eb365fe5524596296}
+
+
+\-Convert a table that represents a \-R\-G\-B image into a table that represents a \-Y\-U\-V image. 
+
+\begin{DoxyAuthor}{\-Author}
+\-J.\-R. \-Tozza 
+\end{DoxyAuthor}
+\begin{DoxyDate}{\-Date}
+2010
+\end{DoxyDate}
+\-The algorithm is the following \-: \par
+ \-For every pixel in \-R\-G\-B mode, build the corresponding pixel in \-Y\-U\-V mode\-: \par
+
+
+$ Y = 0.299R+0.587G+0.114B$ \par
+ $ U = -0.1687R-0.3313G+0.5B+128$ \par
+ $ V = 0.5R-0.41874G-0.0813B+128$ \par
+
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-Trgb} & a \-R\-G\-B table \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$\-Tyuv a \-Y\-U\-V table
+\end{DoxyReturn}
+\-Example \-:
+
+
+\begin{DoxyCode}
+ // read the image on disk using the imageCreateFromPng GD function
+ $imageSrc = "images/highway.png";
+ $Trgb = tabCreateFromPng($path.$imageSrc)
+                or die ("ERROR : cannot create tab from png");
+  
+ // convert to an YUV image
+ $Tyuv = convertRgb2Yuv( $Trgb )
+                or die ("ERROR: conversion rgb to yuv");
+
+   .... 
+
+ // free memory
+ unset($Trgb);
+ unset($Tyuv);
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{\-See also}
+\hyperlink{src_conversion_8php_a3f02fa9c92cdb6e3d6051247f8590eec}{convert\-Yuv2\-Rgb} 
+\end{DoxySeeAlso}
+\hypertarget{src_conversion_8php_a3f02fa9c92cdb6e3d6051247f8590eec}{
+\index{src\-Conversion.\-php@{src\-Conversion.\-php}!convert\-Yuv2\-Rgb@{convert\-Yuv2\-Rgb}}
+\index{convert\-Yuv2\-Rgb@{convert\-Yuv2\-Rgb}!srcConversion.php@{src\-Conversion.\-php}}
+\subsubsection[{convert\-Yuv2\-Rgb}]{\setlength{\rightskip}{0pt plus 5cm}convert\-Yuv2\-Rgb (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-Y}
+\end{DoxyParamCaption}
+)}}
+\label{src_conversion_8php_a3f02fa9c92cdb6e3d6051247f8590eec}
+
+
+\-Convert a table that represents a \-Y\-U\-V image into a table that represents a \-R\-G\-B image. 
+
+\begin{DoxyAuthor}{\-Author}
+\-J.\-R. \-Tozza 
+\end{DoxyAuthor}
+\begin{DoxyDate}{\-Date}
+2010
+\end{DoxyDate}
+\-The algorithm is the following \-: \par
+ \-For every pixel in \-Y\-U\-V mode, build the corresponding pixel in \-R\-G\-B mode\-: \par
+
+
+$ R = Y + 1.402 (V - 128 ) $ \par
+ $ G = Y - 0.34414 ( U - 128 )- 0.71414( V - 128 ) $ \par
+ $ B = Y + 1.772 ( U - 128 ) $ \par
+
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-Y} & a \-Y\-U\-V table \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$\-T a \-R\-G\-B table
+\end{DoxyReturn}
+\-Example 
+\begin{DoxyCode}
+ // read the image on disk using the imageCreateFromPng GD function
+ $imageSrc = "images/highway.png";
+ $Trgb = tabCreateFromPng($path.$imageSrc)
+                or die ("ERROR : cannot create tab from png");
+  
+ // convert to an YUV image
+ $Tyuv = convertRgb2Yuv( $Trgb )
+                or die ("ERROR: conversion rgb to yuv");
+
+ // convert the YUV image into a RGB image
+ $Trgb2=convertYuv2Rgb($Tyuv)
+                or die ("ERROR: conversion yuv to rgb");
+        
+
+ // write the image on the disk
+ $imageResRGB = "results/highwayRGB.png";
+ pngCreateFromTab($Trgb2,$path.$imageResRGB);
+
+ // free memory
+ unset($Trgb);
+ unset($Tyuv)
+ unset($Trgb2);
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{\-See also}
+\hyperlink{src_conversion_8php_a9d507ec8fad6975eb365fe5524596296}{convert\-Rgb2\-Yuv} 
+\end{DoxySeeAlso}

@@ -1,0 +1,147 @@
+\hypertarget{src_histogram_8php}{
+\section{src/src\-Histogram.php \-File \-Reference}
+\label{src_histogram_8php}\index{src/src\-Histogram.\-php@{src/src\-Histogram.\-php}}
+}
+
+
+\-Contrast related functions.  
+
+
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{src_histogram_8php_a03f8c60ef2f085a805e407dc7020ddf2}{find\-Min} (\$\-T)
+\begin{DoxyCompactList}\small\item\em find the min value of greyscale image \end{DoxyCompactList}\item 
+\hyperlink{src_histogram_8php_aaae6af63d554a2bea15fab30485e85cb}{find\-Max} (\$\-T)
+\begin{DoxyCompactList}\small\item\em find the max value of greyscale image \end{DoxyCompactList}\item 
+\hyperlink{src_histogram_8php_ab63f175e4421f73e239f36cafaecc409}{dyn\-Max\-Extension} (\$\-T)
+\begin{DoxyCompactList}\small\item\em \-Extend the image dynamic to \mbox{[}0,255\mbox{]}. \end{DoxyCompactList}\item 
+\hyperlink{src_histogram_8php_a770cf55e1ef8ecf66b401d0dcec56193}{create\-Histogram} (\$\-T)
+\begin{DoxyCompactList}\small\item\em \-Computes a greyscale image's histogram. \end{DoxyCompactList}\item 
+\hyperlink{src_histogram_8php_a03d0ea8fe05bfea3306e36c47272d9ff}{create\-Image\-Histogram} (\$hist, \$width, \$height)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Contrast related functions. \begin{DoxyDate}{\-Date}
+21/08/2011 
+\end{DoxyDate}
+\begin{DoxyAuthor}{\-Author}
+\-Claire \-Dune, \-Jean \-René \-Tozza
+\end{DoxyAuthor}
+\-Point to point transform function to enhance image contrast, build histogram, etc ... \begin{DoxyWarning}{\-Warning}
+\-The functions implemented in this file can only be used on greyscale images 
+\end{DoxyWarning}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{src_histogram_8php_a770cf55e1ef8ecf66b401d0dcec56193}{
+\index{src\-Histogram.\-php@{src\-Histogram.\-php}!create\-Histogram@{create\-Histogram}}
+\index{create\-Histogram@{create\-Histogram}!srcHistogram.php@{src\-Histogram.\-php}}
+\subsubsection[{create\-Histogram}]{\setlength{\rightskip}{0pt plus 5cm}create\-Histogram (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-T}
+\end{DoxyParamCaption}
+)}}
+\label{src_histogram_8php_a770cf55e1ef8ecf66b401d0dcec56193}
+
+
+\-Computes a greyscale image's histogram. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-T} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$hist
+\end{DoxyReturn}
+\begin{DoxyWarning}{\-Warning}
+create\-Hist is only defined for greyscale image ! 
+\end{DoxyWarning}
+\hypertarget{src_histogram_8php_a03d0ea8fe05bfea3306e36c47272d9ff}{
+\index{src\-Histogram.\-php@{src\-Histogram.\-php}!create\-Image\-Histogram@{create\-Image\-Histogram}}
+\index{create\-Image\-Histogram@{create\-Image\-Histogram}!srcHistogram.php@{src\-Histogram.\-php}}
+\subsubsection[{create\-Image\-Histogram}]{\setlength{\rightskip}{0pt plus 5cm}create\-Image\-Histogram (
+\begin{DoxyParamCaption}
+\item[{\$}]{hist, }
+\item[{\$}]{width, }
+\item[{\$}]{height}
+\end{DoxyParamCaption}
+)}}
+\label{src_histogram_8php_a03d0ea8fe05bfea3306e36c47272d9ff}
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$hist} & an histogram \\
+\hline
+{\em \$height} & height of the histogram image \\
+\hline
+{\em \$width} & width of the histogramm image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$\-Image\-Hist an image 
+\end{DoxyReturn}
+\hypertarget{src_histogram_8php_ab63f175e4421f73e239f36cafaecc409}{
+\index{src\-Histogram.\-php@{src\-Histogram.\-php}!dyn\-Max\-Extension@{dyn\-Max\-Extension}}
+\index{dyn\-Max\-Extension@{dyn\-Max\-Extension}!srcHistogram.php@{src\-Histogram.\-php}}
+\subsubsection[{dyn\-Max\-Extension}]{\setlength{\rightskip}{0pt plus 5cm}dyn\-Max\-Extension (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-T}
+\end{DoxyParamCaption}
+)}}
+\label{src_histogram_8php_ab63f175e4421f73e239f36cafaecc409}
+
+
+\-Extend the image dynamic to \mbox{[}0,255\mbox{]}. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-T} & greyscale image 3d table \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$\-Tres a greyscale image 3d table with extended dynamic 
+\end{DoxyReturn}
+\hypertarget{src_histogram_8php_aaae6af63d554a2bea15fab30485e85cb}{
+\index{src\-Histogram.\-php@{src\-Histogram.\-php}!find\-Max@{find\-Max}}
+\index{find\-Max@{find\-Max}!srcHistogram.php@{src\-Histogram.\-php}}
+\subsubsection[{find\-Max}]{\setlength{\rightskip}{0pt plus 5cm}find\-Max (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-T}
+\end{DoxyParamCaption}
+)}}
+\label{src_histogram_8php_aaae6af63d554a2bea15fab30485e85cb}
+
+
+find the max value of greyscale image 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-T} & is a greyscale image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$max\-T 
+\end{DoxyReturn}
+\hypertarget{src_histogram_8php_a03f8c60ef2f085a805e407dc7020ddf2}{
+\index{src\-Histogram.\-php@{src\-Histogram.\-php}!find\-Min@{find\-Min}}
+\index{find\-Min@{find\-Min}!srcHistogram.php@{src\-Histogram.\-php}}
+\subsubsection[{find\-Min}]{\setlength{\rightskip}{0pt plus 5cm}find\-Min (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-T}
+\end{DoxyParamCaption}
+)}}
+\label{src_histogram_8php_a03f8c60ef2f085a805e407dc7020ddf2}
+
+
+find the min value of greyscale image 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-T} & is a greyscale image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$min\-T 
+\end{DoxyReturn}

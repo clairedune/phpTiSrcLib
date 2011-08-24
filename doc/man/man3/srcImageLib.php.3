@@ -1,0 +1,290 @@
+.TH "src/srcImageLib.php" 3 "Mon Aug 22 2011" "phpTiSrcLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/srcImageLib.php \- 
+.PP
+this file contains basic functions for images such image reading or writing, pixel reading  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetPixelValues\fP ($I, $i, $j)"
+.br
+.RI "\fIGet the 3 values of a pixel'\&. \fP"
+.ti -1c
+.RI "\fBsetPixelValues\fP ($I, $i, $j, $r, $g, $b)"
+.br
+.RI "\fISet the 3 values of a pixel'\&. \fP"
+.ti -1c
+.RI "\fBconvertImage2Tab\fP ($I)"
+.br
+.RI "\fIConvert a RGB image into a 3D table'\&. \fP"
+.ti -1c
+.RI "\fBconvertTab2Image\fP ($T, $w, $h)"
+.br
+.RI "\fIthis function convert a table into a RGB image \fP"
+.ti -1c
+.RI "\fBcreateCopy\fP ($I)"
+.br
+.RI "\fICreate a copy of the input image This copy can then be used without changing the source image'\&. \fP"
+.ti -1c
+.RI "\fBdifference\fP ($I1, $I2)"
+.br
+.RI "\fICompute the difference between two images'\&. \fP"
+.ti -1c
+.RI "\fBminMaxImage\fP ($I)"
+.br
+.RI "\fIGet min and max value of a greyscale image'\&. \fP"
+.ti -1c
+.RI "\fBconvertTabRgb2Yuv\fP ($Trgb)"
+.br
+.ti -1c
+.RI "\fBconvertTabRgb2GreyNaive\fP ($Trgb, $w, $h)"
+.br
+.RI "\fIconvert a rgb ressource image into a greyscale image \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+this file contains basic functions for images such image reading or writing, pixel reading 
+
+\fBDate:\fP
+.RS 4
+21/08/2011 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Claire Dune, Jean René Tozza 
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "convertImage2Tab ($I)"
+.PP
+Convert a RGB image into a 3D table'\&. \fBParameters:\fP
+.RS 4
+\fI$I\fP a ressource image 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$w is the image width 
+.PP
+$h is the image height 
+.PP
+$T is a 3D table
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBgetPixelValues\fP( $I, $i, $j )
+.RE
+.PP
+Example : read a source image and convert it into a table 
+.PP
+.nf
+ <?php
+ $imageFile = 'images/sorciere\&.png'
+ $I = imageCreateFromPng($imagefile);
+ $T = convertImage2Tab( $I );
+ ?>
+
+.fi
+.PP
+ 
+.SS "convertTab2Image ($T, $width, $height)"
+.PP
+this function convert a table into a RGB image \fBAuthor:\fP
+.RS 4
+Claire Dune 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+21/08/2011
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$T\fP is a 3D table storing values of an RGB image 
+.br
+\fI$w\fP is the image width 
+.br
+\fI$h\fP is the image height 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$I a ressource image 
+.RE
+.PP
+
+.SS "convertTabRgb2GreyNaive ($Trgb, $w, $h)"
+.PP
+convert a rgb ressource image into a greyscale image This function uses the following naive algorithm'\&. For all the pixels of the image, compute the average values of the r,g,b componants and use it to set the destination pixel values :
+.PP
+.PP
+.nf
+ X = (R+G+B)/3
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$Trgb\fP a table that stores a RGB image 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$Tgrey a table that stores a grey image 
+.RE
+.PP
+
+.SS "createCopy ($I)"
+.PP
+Create a copy of the input image This copy can then be used without changing the source image'\&. \fBAuthor:\fP
+.RS 4
+Claire Dune 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+21/08/2011
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$I\fP ressource image mode rgb
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$Ires ressource image mode rgb 
+.RE
+.PP
+
+.SS "difference ($I1, $I2)"
+.PP
+Compute the difference between two images'\&. \fBAuthor:\fP
+.RS 4
+Claire Dune 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+21/08/2011
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$I1\fP ressource image 
+.br
+\fI$I2\fP ressource image
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$Idiff the difference of the two greyscale images 
+.RE
+.PP
+
+.SS "getPixelValues ($I, $i, $j)"
+.PP
+Get the 3 values of a pixel'\&. Return the 3 values of a pixel (i,j) using the gd function ImageColorAt (see gd library documentation for further details)
+.PP
+\fBAuthor:\fP
+.RS 4
+Claire Dune 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+21/08/2011
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$I\fP ressource image 
+.br
+\fI$i\fP int x-coordinate 
+.br
+\fI$j\fP int y-coordinate 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$red int the red componant 
+.PP
+$green int the green componant 
+.PP
+$blue int the blue componant 
+.RE
+.PP
+
+.SS "minMaxImage ($I)"
+.PP
+Get min and max value of a greyscale image'\&. \fBAuthor:\fP
+.RS 4
+Claire Dune 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+21/08/2011
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$I\fP ressource image 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$minI minimum value of the greyscale image 
+.PP
+$maxI maximum value of the greyscale image 
+.RE
+.PP
+
+.SS "setPixelValues ($I, $i, $j, $r, $g, $b)"
+.PP
+Set the 3 values of a pixel'\&. Set the color of a pixel using 3 rgb values of a pixel (i,j) using the gd function ImageSetPixel and imageColorAllocate (see gd library documentation for further details)
+.PP
+\fBAuthor:\fP
+.RS 4
+Claire Dune 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+21/08/2011
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$I\fP ressource image 
+.br
+\fI$i\fP int x-coordinate 
+.br
+\fI$j\fP int y-coordinate 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$red int the red componant 
+.PP
+$green int the green componant 
+.PP
+$blue int the blue componant 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for phpTiSrcLib from the source code'\&.

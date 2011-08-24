@@ -1,0 +1,211 @@
+.TH "src/srcConversion.php" 3 "Wed Aug 24 2011" "phpTiSrcLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/srcConversion.php \- 
+.PP
+This files contains function to convert an image table from one color mode to another'\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBconvertRgb2Yuv\fP ($Trgb)"
+.br
+.RI "\fIConvert a table that represents a RGB image into a table that represents a YUV image'\&. \fP"
+.ti -1c
+.RI "\fBconvertYuv2Rgb\fP ($Y)"
+.br
+.RI "\fIConvert a table that represents a YUV image into a table that represents a RGB image'\&. \fP"
+.ti -1c
+.RI "\fBconvertRgb2GreyNaive\fP ($Trgb)"
+.br
+.RI "\fIconvert a rgb ressource image into a greyscale image \fP"
+.ti -1c
+.RI "\fBconvertRgb2GreyGamma\fP ($Trgb)"
+.br
+.RI "\fIConvert a rgb ressource image into a greyscale image with a gamma correction'\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This files contains function to convert an image table from one color mode to another'\&. 
+
+\fBDate:\fP
+.RS 4
+21/08/2011 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Claire Dune, Jean René Tozza 
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "convertRgb2GreyGamma ($Trgb)"
+.PP
+Convert a rgb ressource image into a greyscale image with a gamma correction'\&. \fBAuthor:\fP
+.RS 4
+Claire Dune 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+21/08/2011
+.RE
+.PP
+This function convert an RGB image to a greyscale image with a gamma correction'\&. For every pixels in RGB mode, compute the corresponding greyscale value:
+.br
+ 
+.SS "convertRgb2GreyNaive ($Trgb)"
+.PP
+convert a rgb ressource image into a greyscale image \fBAuthor:\fP
+.RS 4
+Claire Dune 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+21/08/2011
+.RE
+.PP
+This function uses the following naive algorithm'\&. For every pixels in RGB mode, compute the average values of the R,G,B componants and set the destination pixel values to this average value:
+.br
+ 
+.SS "convertRgb2Yuv ($Trgb)"
+.PP
+Convert a table that represents a RGB image into a table that represents a YUV image'\&. \fBAuthor:\fP
+.RS 4
+J'\&.R'\&. Tozza 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2010
+.RE
+.PP
+The algorithm is the following : 
+.br
+ For every pixel in RGB mode, build the corresponding pixel in YUV mode: 
+.br
+.PP
+$ Y = 0.299R+0.587G+0.114B$ 
+.br
+ $ U = -0.1687R-0.3313G+0.5B+128$ 
+.br
+ $ V = 0.5R-0.41874G-0.0813B+128$ 
+.br
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$Trgb\fP a RGB table 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$Tyuv a YUV table
+.RE
+.PP
+Example :
+.PP
+.PP
+.nf
+ // read the image on disk using the imageCreateFromPng GD function
+ $imageSrc = 'images/highway\&.png';
+ $Trgb = tabCreateFromPng($path\&.$imageSrc)
+                or die ('ERROR : cannot create tab from png');
+  
+ // convert to an YUV image
+ $Tyuv = convertRgb2Yuv( $Trgb )
+                or die ('ERROR: conversion rgb to yuv');
+
+   \&.\&.\&.\&. 
+
+ // free memory
+ unset($Trgb);
+ unset($Tyuv);
+.fi
+.PP
+.PP
+\fBSee also:\fP
+.RS 4
+\fBconvertYuv2Rgb\fP 
+.RE
+.PP
+
+.SS "convertYuv2Rgb ($Y)"
+.PP
+Convert a table that represents a YUV image into a table that represents a RGB image'\&. \fBAuthor:\fP
+.RS 4
+J'\&.R'\&. Tozza 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2010
+.RE
+.PP
+The algorithm is the following : 
+.br
+ For every pixel in YUV mode, build the corresponding pixel in RGB mode: 
+.br
+.PP
+$ R = Y + 1.402 (V - 128 ) $ 
+.br
+ $ G = Y - 0.34414 ( U - 128 )- 0.71414( V - 128 ) $ 
+.br
+ $ B = Y + 1.772 ( U - 128 ) $ 
+.br
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$Y\fP a YUV table 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$T a RGB table
+.RE
+.PP
+Example 
+.PP
+.nf
+ // read the image on disk using the imageCreateFromPng GD function
+ $imageSrc = 'images/highway\&.png';
+ $Trgb = tabCreateFromPng($path\&.$imageSrc)
+                or die ('ERROR : cannot create tab from png');
+  
+ // convert to an YUV image
+ $Tyuv = convertRgb2Yuv( $Trgb )
+                or die ('ERROR: conversion rgb to yuv');
+
+ // convert the YUV image into a RGB image
+ $Trgb2=convertYuv2Rgb($Tyuv)
+                or die ('ERROR: conversion yuv to rgb');
+        
+
+ // write the image on the disk
+ $imageResRGB = 'results/highwayRGB\&.png';
+ pngCreateFromTab($Trgb2,$path\&.$imageResRGB);
+
+ // free memory
+ unset($Trgb);
+ unset($Tyuv)
+ unset($Trgb2);
+
+.fi
+.PP
+.PP
+\fBSee also:\fP
+.RS 4
+\fBconvertRgb2Yuv\fP 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for phpTiSrcLib from the source code'\&.

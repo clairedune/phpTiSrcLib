@@ -1,0 +1,141 @@
+.TH "src/srcCompression.php" 3 "Wed Aug 24 2011" "phpTiSrcLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/srcCompression.php \- 
+.PP
+This files contains specific functions for the compression class'\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBquatreunun\fP ($Y)"
+.br
+.RI "\fIreduces the U and V planes by 2 \fP"
+.ti -1c
+.RI "\fBinv_quatreunun\fP ($quu)"
+.br
+.RI "\fIrecompose an yuv image from a reduced one \fP"
+.ti -1c
+.RI "\fBjrTransform\fP ($T)"
+.br
+.RI "\fItime to frequency transform \fP"
+.ti -1c
+.RI "\fBinv_jrTransform\fP ($JRT)"
+.br
+.RI "\fIfrequency to time transform \fP"
+.ti -1c
+.RI "\fBquantifie\fP ($JRT, $Q)"
+.br
+.RI "\fIQuantify a frequency response with the quality factor Q'\&. \fP"
+.ti -1c
+.RI "\fBrequantifie\fP ($JRT, $Q)"
+.br
+.RI "\fIRecompose the original amplitude of a quantifiedfrequency response with the quality factor Q'\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This files contains specific functions for the compression class'\&. 
+
+\fBDate:\fP
+.RS 4
+21/08/2011 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Claire Dune, Jean René Tozza 
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "inv_jrTransform ($JRT)"
+.PP
+frequency to time transform \fBParameters:\fP
+.RS 4
+\fI$JRT\fP the frequency representation 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$ijrt is a 3D table where YUV layers are 4:4:4 or 4:1:1; 
+.RE
+.PP
+
+.SS "inv_quatreunun ($quu)"
+.PP
+recompose an yuv image from a reduced one \fBParameters:\fP
+.RS 4
+\fI$quu\fP a 3D table where the U and V planes are 4 times smaller 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$Y is a 3D table that represents an yuv image 
+.RE
+.PP
+
+.SS "jrTransform ($T)"
+.PP
+time to frequency transform \fBParameters:\fP
+.RS 4
+\fI$T\fP is a 3D table where YUV layers are 4:4:4 or 4:1:1; 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$jrt the frequency response 
+.RE
+.PP
+
+.SS "quantifie ($JRT, $Q)"
+.PP
+Quantify a frequency response with the quality factor Q'\&. \fBParameters:\fP
+.RS 4
+\fI$JRT\fP a frequency response 
+.br
+\fI$Q\fP a quality factor 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$quan the quantified frequency response 
+.RE
+.PP
+
+.SS "quatreunun ($Y)"
+.PP
+reduces the U and V planes by 2 \fBParameters:\fP
+.RS 4
+\fI$Y\fP est un tableau 3D qui correspond aux 3 plans Y U V 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$quu tableau 3D dont les plan U et V sont 4 fois plus petit 
+.RE
+.PP
+
+.SS "requantifie ($JRT, $Q)"
+.PP
+Recompose the original amplitude of a quantifiedfrequency response with the quality factor Q'\&. \fBParameters:\fP
+.RS 4
+\fI$JRT\fP a quantified frequency response 
+.br
+\fI$Q\fP a quality factor 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$quan the recomposed frequency response 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for phpTiSrcLib from the source code'\&.

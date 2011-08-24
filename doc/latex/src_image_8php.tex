@@ -1,0 +1,311 @@
+\hypertarget{src_image_8php}{
+\section{src/src\-Image.php \-File \-Reference}
+\label{src_image_8php}\index{src/src\-Image.\-php@{src/src\-Image.\-php}}
+}
+
+
+\-Basic image functions.  
+
+
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{src_image_8php_ab73076b368326e499ce3107206882e4d}{get\-Pixel\-Values} (\$\-I, \$i, \$j)
+\begin{DoxyCompactList}\small\item\em \-Get the 3 values of a pixel. \end{DoxyCompactList}\item 
+\hyperlink{src_image_8php_a0570e456a725214ce051800c3eb2cc83}{set\-Pixel\-Values} (\$\-I, \$i, \$j, \$r, \$g, \$b)
+\begin{DoxyCompactList}\small\item\em \-Set the 3 values of a pixel. \end{DoxyCompactList}\item 
+\hyperlink{src_image_8php_a071952c3f25b07f2880b97a13499ff3f}{convert\-Image2\-Tab} (\$\-I)
+\begin{DoxyCompactList}\small\item\em \-Convert a \-R\-G\-B image into a 3\-D table. \end{DoxyCompactList}\item 
+\hyperlink{src_image_8php_ab8172dbbfa8148d42dc1a0a2121f648e}{convert\-Tab2\-Image} (\$\-T, \$width, \$height)
+\begin{DoxyCompactList}\small\item\em this function convert a table into a \-R\-G\-B image \end{DoxyCompactList}\item 
+\hyperlink{src_image_8php_ab284b36339e9c39321efdd780d1052b4}{tab\-Create\-From\-Png} (\$filename)
+\begin{DoxyCompactList}\small\item\em store the image data in a table \end{DoxyCompactList}\item 
+\hyperlink{src_image_8php_a904b319b055d0880a306e466e164ec48}{create\-Copy} (\$\-I)
+\begin{DoxyCompactList}\small\item\em \-Create a copy of the input image \-This copy can then be used without changing the source image. \end{DoxyCompactList}\item 
+\hyperlink{src_image_8php_a1bbbb1b3ff70927526f343cf280f50c3}{difference} (\$\-I1, \$\-I2)
+\begin{DoxyCompactList}\small\item\em \-Compute the difference between two images. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Basic image functions. \begin{DoxyDate}{\-Date}
+21/08/2011 
+\end{DoxyDate}
+\begin{DoxyAuthor}{\-Author}
+\-Claire \-Dune, \-Jean \-René \-Tozza
+\end{DoxyAuthor}
+\-This file contains basic functions for images such image reading or writing, pixel reading 
+
+\subsection{\-Function \-Documentation}
+\hypertarget{src_image_8php_a071952c3f25b07f2880b97a13499ff3f}{
+\index{src\-Image.\-php@{src\-Image.\-php}!convert\-Image2\-Tab@{convert\-Image2\-Tab}}
+\index{convert\-Image2\-Tab@{convert\-Image2\-Tab}!srcImage.php@{src\-Image.\-php}}
+\subsubsection[{convert\-Image2\-Tab}]{\setlength{\rightskip}{0pt plus 5cm}convert\-Image2\-Tab (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-I}
+\end{DoxyParamCaption}
+)}}
+\label{src_image_8php_a071952c3f25b07f2880b97a13499ff3f}
+
+
+\-Convert a \-R\-G\-B image into a 3\-D table. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-I} & a ressource image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$width is the image width 
+
+\$height is the image height 
+
+\$\-T is a 3\-D table
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{\-See also}
+\hyperlink{src_image_8php_ab73076b368326e499ce3107206882e4d}{get\-Pixel\-Values}( \$\-I, \$i, \$j )
+\end{DoxySeeAlso}
+\-Example \-: read a source image and convert it into a table 
+\begin{DoxyCode}
+ $imageFile = "images/sorciere.png"
+ $I = imageCreateFromPng($imagefile);
+ $T = convertImage2Tab( $I );
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{\-See also}
+\hyperlink{src_image_8php_ab8172dbbfa8148d42dc1a0a2121f648e}{convert\-Tab2\-Image} 
+\end{DoxySeeAlso}
+\hypertarget{src_image_8php_ab8172dbbfa8148d42dc1a0a2121f648e}{
+\index{src\-Image.\-php@{src\-Image.\-php}!convert\-Tab2\-Image@{convert\-Tab2\-Image}}
+\index{convert\-Tab2\-Image@{convert\-Tab2\-Image}!srcImage.php@{src\-Image.\-php}}
+\subsubsection[{convert\-Tab2\-Image}]{\setlength{\rightskip}{0pt plus 5cm}convert\-Tab2\-Image (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-T, }
+\item[{\$}]{width, }
+\item[{\$}]{height}
+\end{DoxyParamCaption}
+)}}
+\label{src_image_8php_ab8172dbbfa8148d42dc1a0a2121f648e}
+
+
+this function convert a table into a \-R\-G\-B image 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-T} & is a 3\-D table storing values of an \-R\-G\-B image \\
+\hline
+{\em \$width} & is the image width \\
+\hline
+{\em \$height} & is the image height \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$\-I a ressource image
+\end{DoxyReturn}
+\-Example \-: read an image, convert it to a table and then convert it into an image 
+\begin{DoxyCode}
+        // read the image on disk using the imageCreateFromPng GD function
+        $imageSrc = "images/sorciere.png";
+
+        $I = imageCreateFromPng($path.$imageSrc) 
+                or die("cannot create the image");
+
+        list($T,$w,$h) = convertImage2Tab( $I )
+                or die ("cannot convert image");
+
+        $Ires = convertTab2Image($T,$w,$h)
+                or die("cannot convert the tab");
+
+        $imageRes = "results/sorciere.png";
+        imagePng($Ires,$path.$imageRes)
+                or die("cannot create the image res");
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{\-See also}
+\hyperlink{src_image_8php_a071952c3f25b07f2880b97a13499ff3f}{convert\-Image2\-Tab} 
+\end{DoxySeeAlso}
+\hypertarget{src_image_8php_a904b319b055d0880a306e466e164ec48}{
+\index{src\-Image.\-php@{src\-Image.\-php}!create\-Copy@{create\-Copy}}
+\index{create\-Copy@{create\-Copy}!srcImage.php@{src\-Image.\-php}}
+\subsubsection[{create\-Copy}]{\setlength{\rightskip}{0pt plus 5cm}create\-Copy (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-I}
+\end{DoxyParamCaption}
+)}}
+\label{src_image_8php_a904b319b055d0880a306e466e164ec48}
+
+
+\-Create a copy of the input image \-This copy can then be used without changing the source image. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-I} & ressource image mode rgb \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$\-Ires ressource image mode rgb
+\end{DoxyReturn}
+\-Example \-: read an image and create a copy 
+\begin{DoxyCode}
+        // read the image on disk using the imageCreateFromPng GD function
+        $imageSrc = "images/sorciere.png";
+        $I = imageCreateFromPng($path.$imageSrc) 
+                or die("ERROR : cannot open the image");
+
+        // copy the image and save the result
+        $Ires = createCopy( $I )
+                or die("ERROR : cannot create the copy");
+\end{DoxyCode}
+ \hypertarget{src_image_8php_a1bbbb1b3ff70927526f343cf280f50c3}{
+\index{src\-Image.\-php@{src\-Image.\-php}!difference@{difference}}
+\index{difference@{difference}!srcImage.php@{src\-Image.\-php}}
+\subsubsection[{difference}]{\setlength{\rightskip}{0pt plus 5cm}difference (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-I1, }
+\item[{\$}]{\-I2}
+\end{DoxyParamCaption}
+)}}
+\label{src_image_8php_a1bbbb1b3ff70927526f343cf280f50c3}
+
+
+\-Compute the difference between two images. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-I1} & ressource image \\
+\hline
+{\em \$\-I2} & ressource image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$\-Idiff the difference of the two greyscale images
+\end{DoxyReturn}
+\-An example of use 
+\begin{DoxyCode}
+        // read the image on disk using the imageCreateFromPng GD function
+        $imageSrc = "images/sorciere.png";
+        $I = imageCreateFromPng($path.$imageSrc) 
+                or die("ERROR : cannot open the image");
+
+        // copy the image and save the result
+        $Ires = createCopy( $I )
+                or die("ERROR : cannot create the copy");
+
+        // create a difference image
+        $Idiff = difference ($I,$Ires)
+                or die ("ERROR cannot compute the difference");
+
+        // save the difference image, if image are the same, this image should
+       be black
+        $imageDiff = "results/sorciereDiff.png";
+        imagePng( $Ires, $path.$imageDiff )
+                or die ("ERROR : cannot save the image");
+\end{DoxyCode}
+ \hypertarget{src_image_8php_ab73076b368326e499ce3107206882e4d}{
+\index{src\-Image.\-php@{src\-Image.\-php}!get\-Pixel\-Values@{get\-Pixel\-Values}}
+\index{get\-Pixel\-Values@{get\-Pixel\-Values}!srcImage.php@{src\-Image.\-php}}
+\subsubsection[{get\-Pixel\-Values}]{\setlength{\rightskip}{0pt plus 5cm}get\-Pixel\-Values (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-I, }
+\item[{\$}]{i, }
+\item[{\$}]{j}
+\end{DoxyParamCaption}
+)}}
+\label{src_image_8php_ab73076b368326e499ce3107206882e4d}
+
+
+\-Get the 3 values of a pixel. 
+
+\-Return the 3 values of a pixel (i,j) using the gd function \-Image\-Color\-At (see gd library documentation for further details)
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-I} & ressource image \\
+\hline
+{\em \$i} & int x-\/coordinate \\
+\hline
+{\em \$j} & int y-\/coordinate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$red int the red componant 
+
+\$green int the green componant 
+
+\$blue int the blue componant
+\end{DoxyReturn}
+\-Example \-: display the values of the pixel (10,5) 
+\begin{DoxyCode}
+        // read the image on disk using the imageCreateFromPng GD function
+        $imageFile = "images/sorciere.png"
+        $I = imageCreateFromPng($imagefile);
+
+        // pixel coordinates
+        $i = 10;
+        $j = 5;
+
+        // get the pixel R, G, and B values
+        list( $r , $g , $b ) = convertImage2Tab( $I );
+        
+        echo "The red value is ".$r;
+        echo "The green value is ".$g;
+        echo "The blue value is ".$b;
+\end{DoxyCode}
+ \hypertarget{src_image_8php_a0570e456a725214ce051800c3eb2cc83}{
+\index{src\-Image.\-php@{src\-Image.\-php}!set\-Pixel\-Values@{set\-Pixel\-Values}}
+\index{set\-Pixel\-Values@{set\-Pixel\-Values}!srcImage.php@{src\-Image.\-php}}
+\subsubsection[{set\-Pixel\-Values}]{\setlength{\rightskip}{0pt plus 5cm}set\-Pixel\-Values (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-I, }
+\item[{\$}]{i, }
+\item[{\$}]{j, }
+\item[{\$}]{r, }
+\item[{\$}]{g, }
+\item[{\$}]{b}
+\end{DoxyParamCaption}
+)}}
+\label{src_image_8php_a0570e456a725214ce051800c3eb2cc83}
+
+
+\-Set the 3 values of a pixel. 
+
+\-Set the color of a pixel using 3 rgb values of a pixel (i,j) using the gd function \-Image\-Set\-Pixel and image\-Color\-Allocate (see gd library documentation for further details)
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-I} & ressource image \\
+\hline
+{\em \$i} & int x-\/coordinate \\
+\hline
+{\em \$j} & int y-\/coordinate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$red int the red componant 
+
+\$green int the green componant 
+
+\$blue int the blue componant 
+\end{DoxyReturn}
+\hypertarget{src_image_8php_ab284b36339e9c39321efdd780d1052b4}{
+\index{src\-Image.\-php@{src\-Image.\-php}!tab\-Create\-From\-Png@{tab\-Create\-From\-Png}}
+\index{tab\-Create\-From\-Png@{tab\-Create\-From\-Png}!srcImage.php@{src\-Image.\-php}}
+\subsubsection[{tab\-Create\-From\-Png}]{\setlength{\rightskip}{0pt plus 5cm}tab\-Create\-From\-Png (
+\begin{DoxyParamCaption}
+\item[{\$}]{filename}
+\end{DoxyParamCaption}
+)}}
+\label{src_image_8php_ab284b36339e9c39321efdd780d1052b4}
+
+
+store the image data in a table 
+
+tab\-Create\-From\-Png(\$filename) 
+\begin{DoxyParams}{\-Parameters}
+{\em \$filename} & image path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$\-T a 3\-D table containing the image information 
+\end{DoxyReturn}

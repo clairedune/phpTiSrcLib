@@ -1,0 +1,28 @@
+\hypertarget{index_Introduction}{}\section{\-Introduction}\label{index_Introduction}
+\-You will use this few function for the numerisation class (\-S2) as well as the image processing and the compression class (\-S3)\hypertarget{index_install}{}\section{\-How to install this library ?}\label{index_install}
+\hypertarget{index_install_gd}{}\subsection{\-Step 1 \-: make sure that the library gd is activated}\label{index_install_gd}
+\-For instance, with easy\-Php,configuration—$>$extension php-\/-\/-\/$>$php gd2\hypertarget{index_install_step1}{}\subsection{\-Step 2 \-: simply copy the folder php\-Ti\-Src\-Lib in your www folder}\label{index_install_step1}
+\hypertarget{index_install_step3}{}\subsection{\-Step 3 \-: include the file you need in your php header}\label{index_install_step3}
+
+\begin{DoxyCode}
+ include('phpTiSrcLib/conf/config.php');
+ include('src/srcImage.php');
+ etc ... 
+\end{DoxyCode}
+\hypertarget{index_documentation}{}\section{\-Where can I fing the documentation ?}\label{index_documentation}
+\-The php\-Ti\-Src \-Toolbox is mainly based on the gd library. \-Many image processing php library exists. \-We chose the gd library mainly because it is usually available in the php default libraries that you get with \-Xamp, or \-Mamp.\hypertarget{index_documentation_phpTiSrc}{}\subsection{\-Documentation on php\-Ti\-Src\-Lib}\label{index_documentation_phpTiSrc}
+\-You can find the documentation of the php\-Ti\-Src lib in 
+\begin{DoxyCode}
+ phpTiSrc/doc/html
+\end{DoxyCode}
+ \par
+ \-This documentation was an automatically generated using \-Doxygen. \-If you add new features to the lib and want to regenerate the documentation, please download \-Doygen (\href{http://www.stack.nl/~dimitri/doxygen/index.html}{\tt http\-://www.\-stack.\-nl/$\sim$dimitri/doxygen/index.\-html}) and run it in the php\-Ti\-Src. \par
+ \-The existing \-Doxyfile is already configured to recursively parse the code in the src folder. 
+\begin{DoxyCode}
+ cd phpTiSrc
+ doxygen
+\end{DoxyCode}
+\hypertarget{index_documentation_gd}{}\subsection{\-Documentation on the gd library}\label{index_documentation_gd}
+\-P\-H\-P is not limited to creating just \-H\-T\-M\-L output. \-It can also be used to create and manipulate image files in a variety of different image formats, including \-G\-I\-F, \-P\-N\-G, \-J\-P\-E\-G, \-W\-B\-M\-P, and \-X\-P\-M. \-Even more convenient, \-P\-H\-P can output image streams directly to a browser. \-You will need to compile \-P\-H\-P with the \-G\-D library of image functions for this to work. \-G\-D and \-P\-H\-P may also require other libraries, depending on which image formats you want to work with.\par
+ \par
+ \-You can use the image functions in \-P\-H\-P to get the size of \-J\-P\-E\-G, \-G\-I\-F, \-P\-N\-G, \-S\-W\-F, \-T\-I\-F\-F and \-J\-P\-E\-G2000 images. \-Read more in french \-: \href{http://php.net/manual/fr/book.image.php}{\tt http\-://php.\-net/manual/fr/book.\-image.\-php} 

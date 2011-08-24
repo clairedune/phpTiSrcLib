@@ -1,0 +1,312 @@
+\hypertarget{src_image_lib_8php}{
+\section{src/src\-Image\-Lib.php \-File \-Reference}
+\label{src_image_lib_8php}\index{src/src\-Image\-Lib.\-php@{src/src\-Image\-Lib.\-php}}
+}
+
+
+this file contains basic functions for images such image reading or writing, pixel reading  
+
+
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{src_image_lib_8php_ab73076b368326e499ce3107206882e4d}{get\-Pixel\-Values} (\$\-I, \$i, \$j)
+\begin{DoxyCompactList}\small\item\em \-Get the 3 values of a pixel. \end{DoxyCompactList}\item 
+\hyperlink{src_image_lib_8php_a0570e456a725214ce051800c3eb2cc83}{set\-Pixel\-Values} (\$\-I, \$i, \$j, \$r, \$g, \$b)
+\begin{DoxyCompactList}\small\item\em \-Set the 3 values of a pixel. \end{DoxyCompactList}\item 
+\hyperlink{src_image_lib_8php_a071952c3f25b07f2880b97a13499ff3f}{convert\-Image2\-Tab} (\$\-I)
+\begin{DoxyCompactList}\small\item\em \-Convert a \-R\-G\-B image into a 3\-D table. \end{DoxyCompactList}\item 
+\hyperlink{src_image_lib_8php_af533441d503cdfabad1401c6bc76b7b0}{convert\-Tab2\-Image} (\$\-T, \$w, \$h)
+\begin{DoxyCompactList}\small\item\em this function convert a table into a \-R\-G\-B image \end{DoxyCompactList}\item 
+\hyperlink{src_image_lib_8php_a904b319b055d0880a306e466e164ec48}{create\-Copy} (\$\-I)
+\begin{DoxyCompactList}\small\item\em \-Create a copy of the input image \-This copy can then be used without changing the source image. \end{DoxyCompactList}\item 
+\hyperlink{src_image_lib_8php_a1bbbb1b3ff70927526f343cf280f50c3}{difference} (\$\-I1, \$\-I2)
+\begin{DoxyCompactList}\small\item\em \-Compute the difference between two images. \end{DoxyCompactList}\item 
+\hyperlink{src_image_lib_8php_a2b4b05b6437b544ed10aa4e98722df06}{min\-Max\-Image} (\$\-I)
+\begin{DoxyCompactList}\small\item\em \-Get min and max value of a greyscale image. \end{DoxyCompactList}\item 
+\hypertarget{src_image_lib_8php_a51d7eed68b48ca67af0db3f02027be74}{
+{\bfseries convert\-Tab\-Rgb2\-Yuv} (\$\-Trgb)}
+\label{src_image_lib_8php_a51d7eed68b48ca67af0db3f02027be74}
+
+\item 
+\hyperlink{src_image_lib_8php_ae954f7ae8928a64d1001882caf4a1bb3}{convert\-Tab\-Rgb2\-Grey\-Naive} (\$\-Trgb, \$w, \$h)
+\begin{DoxyCompactList}\small\item\em convert a rgb ressource image into a greyscale image \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+this file contains basic functions for images such image reading or writing, pixel reading \begin{DoxyDate}{\-Date}
+21/08/2011 
+\end{DoxyDate}
+\begin{DoxyAuthor}{\-Author}
+\-Claire \-Dune, \-Jean \-René \-Tozza 
+\end{DoxyAuthor}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{src_image_lib_8php_a071952c3f25b07f2880b97a13499ff3f}{
+\index{src\-Image\-Lib.\-php@{src\-Image\-Lib.\-php}!convert\-Image2\-Tab@{convert\-Image2\-Tab}}
+\index{convert\-Image2\-Tab@{convert\-Image2\-Tab}!srcImageLib.php@{src\-Image\-Lib.\-php}}
+\subsubsection[{convert\-Image2\-Tab}]{\setlength{\rightskip}{0pt plus 5cm}convert\-Image2\-Tab (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-I}
+\end{DoxyParamCaption}
+)}}
+\label{src_image_lib_8php_a071952c3f25b07f2880b97a13499ff3f}
+
+
+\-Convert a \-R\-G\-B image into a 3\-D table. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-I} & a ressource image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$w is the image width 
+
+\$h is the image height 
+
+\$\-T is a 3\-D table
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{\-See also}
+\hyperlink{src_image_lib_8php_ab73076b368326e499ce3107206882e4d}{get\-Pixel\-Values}( \$\-I, \$i, \$j )
+\end{DoxySeeAlso}
+\-Example \-: read a source image and convert it into a table 
+\begin{DoxyCode}
+ <?php
+ $imageFile = "images/sorciere.png"
+ $I = imageCreateFromPng($imagefile);
+ $T = convertImage2Tab( $I );
+ ?>
+\end{DoxyCode}
+ \hypertarget{src_image_lib_8php_af533441d503cdfabad1401c6bc76b7b0}{
+\index{src\-Image\-Lib.\-php@{src\-Image\-Lib.\-php}!convert\-Tab2\-Image@{convert\-Tab2\-Image}}
+\index{convert\-Tab2\-Image@{convert\-Tab2\-Image}!srcImageLib.php@{src\-Image\-Lib.\-php}}
+\subsubsection[{convert\-Tab2\-Image}]{\setlength{\rightskip}{0pt plus 5cm}convert\-Tab2\-Image (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-T, }
+\item[{\$}]{width, }
+\item[{\$}]{height}
+\end{DoxyParamCaption}
+)}}
+\label{src_image_lib_8php_af533441d503cdfabad1401c6bc76b7b0}
+
+
+this function convert a table into a \-R\-G\-B image 
+
+\begin{DoxyAuthor}{\-Author}
+\-Claire \-Dune 
+\end{DoxyAuthor}
+\begin{DoxyDate}{\-Date}
+21/08/2011
+\end{DoxyDate}
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-T} & is a 3\-D table storing values of an \-R\-G\-B image \\
+\hline
+{\em \$w} & is the image width \\
+\hline
+{\em \$h} & is the image height \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$\-I a ressource image 
+\end{DoxyReturn}
+\hypertarget{src_image_lib_8php_ae954f7ae8928a64d1001882caf4a1bb3}{
+\index{src\-Image\-Lib.\-php@{src\-Image\-Lib.\-php}!convert\-Tab\-Rgb2\-Grey\-Naive@{convert\-Tab\-Rgb2\-Grey\-Naive}}
+\index{convert\-Tab\-Rgb2\-Grey\-Naive@{convert\-Tab\-Rgb2\-Grey\-Naive}!srcImageLib.php@{src\-Image\-Lib.\-php}}
+\subsubsection[{convert\-Tab\-Rgb2\-Grey\-Naive}]{\setlength{\rightskip}{0pt plus 5cm}convert\-Tab\-Rgb2\-Grey\-Naive (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-Trgb, }
+\item[{\$}]{w, }
+\item[{\$}]{h}
+\end{DoxyParamCaption}
+)}}
+\label{src_image_lib_8php_ae954f7ae8928a64d1001882caf4a1bb3}
+
+
+convert a rgb ressource image into a greyscale image 
+
+\-This function uses the following naive algorithm. \-For all the pixels of the image, compute the average values of the r,g,b componants and use it to set the destination pixel values \-:
+
+
+\begin{DoxyCode}
+ X = (R+G+B)/3
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-Trgb} & a table that stores a \-R\-G\-B image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$\-Tgrey a table that stores a grey image 
+\end{DoxyReturn}
+\hypertarget{src_image_lib_8php_a904b319b055d0880a306e466e164ec48}{
+\index{src\-Image\-Lib.\-php@{src\-Image\-Lib.\-php}!create\-Copy@{create\-Copy}}
+\index{create\-Copy@{create\-Copy}!srcImageLib.php@{src\-Image\-Lib.\-php}}
+\subsubsection[{create\-Copy}]{\setlength{\rightskip}{0pt plus 5cm}create\-Copy (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-I}
+\end{DoxyParamCaption}
+)}}
+\label{src_image_lib_8php_a904b319b055d0880a306e466e164ec48}
+
+
+\-Create a copy of the input image \-This copy can then be used without changing the source image. 
+
+\begin{DoxyAuthor}{\-Author}
+\-Claire \-Dune 
+\end{DoxyAuthor}
+\begin{DoxyDate}{\-Date}
+21/08/2011
+\end{DoxyDate}
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-I} & ressource image mode rgb\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$\-Ires ressource image mode rgb 
+\end{DoxyReturn}
+\hypertarget{src_image_lib_8php_a1bbbb1b3ff70927526f343cf280f50c3}{
+\index{src\-Image\-Lib.\-php@{src\-Image\-Lib.\-php}!difference@{difference}}
+\index{difference@{difference}!srcImageLib.php@{src\-Image\-Lib.\-php}}
+\subsubsection[{difference}]{\setlength{\rightskip}{0pt plus 5cm}difference (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-I1, }
+\item[{\$}]{\-I2}
+\end{DoxyParamCaption}
+)}}
+\label{src_image_lib_8php_a1bbbb1b3ff70927526f343cf280f50c3}
+
+
+\-Compute the difference between two images. 
+
+\begin{DoxyAuthor}{\-Author}
+\-Claire \-Dune 
+\end{DoxyAuthor}
+\begin{DoxyDate}{\-Date}
+21/08/2011
+\end{DoxyDate}
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-I1} & ressource image \\
+\hline
+{\em \$\-I2} & ressource image\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$\-Idiff the difference of the two greyscale images 
+\end{DoxyReturn}
+\hypertarget{src_image_lib_8php_ab73076b368326e499ce3107206882e4d}{
+\index{src\-Image\-Lib.\-php@{src\-Image\-Lib.\-php}!get\-Pixel\-Values@{get\-Pixel\-Values}}
+\index{get\-Pixel\-Values@{get\-Pixel\-Values}!srcImageLib.php@{src\-Image\-Lib.\-php}}
+\subsubsection[{get\-Pixel\-Values}]{\setlength{\rightskip}{0pt plus 5cm}get\-Pixel\-Values (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-I, }
+\item[{\$}]{i, }
+\item[{\$}]{j}
+\end{DoxyParamCaption}
+)}}
+\label{src_image_lib_8php_ab73076b368326e499ce3107206882e4d}
+
+
+\-Get the 3 values of a pixel. 
+
+\-Return the 3 values of a pixel (i,j) using the gd function \-Image\-Color\-At (see gd library documentation for further details)
+
+\begin{DoxyAuthor}{\-Author}
+\-Claire \-Dune 
+\end{DoxyAuthor}
+\begin{DoxyDate}{\-Date}
+21/08/2011
+\end{DoxyDate}
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-I} & ressource image \\
+\hline
+{\em \$i} & int x-\/coordinate \\
+\hline
+{\em \$j} & int y-\/coordinate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$red int the red componant 
+
+\$green int the green componant 
+
+\$blue int the blue componant 
+\end{DoxyReturn}
+\hypertarget{src_image_lib_8php_a2b4b05b6437b544ed10aa4e98722df06}{
+\index{src\-Image\-Lib.\-php@{src\-Image\-Lib.\-php}!min\-Max\-Image@{min\-Max\-Image}}
+\index{min\-Max\-Image@{min\-Max\-Image}!srcImageLib.php@{src\-Image\-Lib.\-php}}
+\subsubsection[{min\-Max\-Image}]{\setlength{\rightskip}{0pt plus 5cm}min\-Max\-Image (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-I}
+\end{DoxyParamCaption}
+)}}
+\label{src_image_lib_8php_a2b4b05b6437b544ed10aa4e98722df06}
+
+
+\-Get min and max value of a greyscale image. 
+
+\begin{DoxyAuthor}{\-Author}
+\-Claire \-Dune 
+\end{DoxyAuthor}
+\begin{DoxyDate}{\-Date}
+21/08/2011
+\end{DoxyDate}
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-I} & ressource image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$min\-I minimum value of the greyscale image 
+
+\$max\-I maximum value of the greyscale image 
+\end{DoxyReturn}
+\hypertarget{src_image_lib_8php_a0570e456a725214ce051800c3eb2cc83}{
+\index{src\-Image\-Lib.\-php@{src\-Image\-Lib.\-php}!set\-Pixel\-Values@{set\-Pixel\-Values}}
+\index{set\-Pixel\-Values@{set\-Pixel\-Values}!srcImageLib.php@{src\-Image\-Lib.\-php}}
+\subsubsection[{set\-Pixel\-Values}]{\setlength{\rightskip}{0pt plus 5cm}set\-Pixel\-Values (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-I, }
+\item[{\$}]{i, }
+\item[{\$}]{j, }
+\item[{\$}]{r, }
+\item[{\$}]{g, }
+\item[{\$}]{b}
+\end{DoxyParamCaption}
+)}}
+\label{src_image_lib_8php_a0570e456a725214ce051800c3eb2cc83}
+
+
+\-Set the 3 values of a pixel. 
+
+\-Set the color of a pixel using 3 rgb values of a pixel (i,j) using the gd function \-Image\-Set\-Pixel and image\-Color\-Allocate (see gd library documentation for further details)
+
+\begin{DoxyAuthor}{\-Author}
+\-Claire \-Dune 
+\end{DoxyAuthor}
+\begin{DoxyDate}{\-Date}
+21/08/2011
+\end{DoxyDate}
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-I} & ressource image \\
+\hline
+{\em \$i} & int x-\/coordinate \\
+\hline
+{\em \$j} & int y-\/coordinate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$red int the red componant 
+
+\$green int the green componant 
+
+\$blue int the blue componant 
+\end{DoxyReturn}

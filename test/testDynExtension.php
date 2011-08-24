@@ -35,7 +35,6 @@ Convert an RGB image into a greyscale Image
 	$imageRes = "results/kyotoExt.png";
 	pngCreateFromTab($Text,$path.$imageRes);	
 	
-	// 
 	
 	// free memory
 	unset($T);

@@ -1,0 +1,290 @@
+.TH "src/srcImage.php" 3 "Tue Aug 23 2011" "phpTiSrcLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/srcImage.php \- 
+.PP
+Basic image functions'\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetPixelValues\fP ($I, $i, $j)"
+.br
+.RI "\fIGet the 3 values of a pixel'\&. \fP"
+.ti -1c
+.RI "\fBsetPixelValues\fP ($I, $i, $j, $r, $g, $b)"
+.br
+.RI "\fISet the 3 values of a pixel'\&. \fP"
+.ti -1c
+.RI "\fBconvertImage2Tab\fP ($I)"
+.br
+.RI "\fIConvert a RGB image into a 3D table'\&. \fP"
+.ti -1c
+.RI "\fBconvertTab2Image\fP ($T, $width, $height)"
+.br
+.RI "\fIthis function convert a table into a RGB image \fP"
+.ti -1c
+.RI "\fBtabCreateFromPng\fP ($filename)"
+.br
+.RI "\fIstore the image data in a table \fP"
+.ti -1c
+.RI "\fBcreateCopy\fP ($I)"
+.br
+.RI "\fICreate a copy of the input image This copy can then be used without changing the source image'\&. \fP"
+.ti -1c
+.RI "\fBdifference\fP ($I1, $I2)"
+.br
+.RI "\fICompute the difference between two images'\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Basic image functions'\&. 
+
+\fBDate:\fP
+.RS 4
+21/08/2011 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Claire Dune, Jean René Tozza
+.RE
+.PP
+This file contains basic functions for images such image reading or writing, pixel reading 
+.SH "Function Documentation"
+.PP 
+.SS "convertImage2Tab ($I)"
+.PP
+Convert a RGB image into a 3D table'\&. \fBParameters:\fP
+.RS 4
+\fI$I\fP a ressource image 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$width is the image width 
+.PP
+$height is the image height 
+.PP
+$T is a 3D table
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBgetPixelValues\fP( $I, $i, $j )
+.RE
+.PP
+Example : read a source image and convert it into a table 
+.PP
+.nf
+ $imageFile = 'images/sorciere\&.png'
+ $I = imageCreateFromPng($imagefile);
+ $T = convertImage2Tab( $I );
+
+.fi
+.PP
+.PP
+\fBSee also:\fP
+.RS 4
+\fBconvertTab2Image\fP 
+.RE
+.PP
+
+.SS "convertTab2Image ($T, $width, $height)"
+.PP
+this function convert a table into a RGB image \fBParameters:\fP
+.RS 4
+\fI$T\fP is a 3D table storing values of an RGB image 
+.br
+\fI$width\fP is the image width 
+.br
+\fI$height\fP is the image height 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$I a ressource image
+.RE
+.PP
+Example : read an image, convert it to a table and then convert it into an image 
+.PP
+.nf
+  // read the image on disk using the imageCreateFromPng GD function
+        $imageSrc = 'images/sorciere\&.png';
+
+        $I = imageCreateFromPng($path\&.$imageSrc) 
+                or die('cannot create the image');
+
+        list($T,$w,$h) = convertImage2Tab( $I )
+                or die ('cannot convert image');
+
+        $Ires = convertTab2Image($T,$w,$h)
+                or die('cannot convert the tab');
+
+        $imageRes = 'results/sorciere\&.png';
+        imagePng($Ires,$path\&.$imageRes)
+                or die('cannot create the image res');
+
+.fi
+.PP
+.PP
+\fBSee also:\fP
+.RS 4
+\fBconvertImage2Tab\fP 
+.RE
+.PP
+
+.SS "createCopy ($I)"
+.PP
+Create a copy of the input image This copy can then be used without changing the source image'\&. \fBParameters:\fP
+.RS 4
+\fI$I\fP ressource image mode rgb 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$Ires ressource image mode rgb
+.RE
+.PP
+Example : read an image and create a copy 
+.PP
+.nf
+ // read the image on disk using the imageCreateFromPng GD function
+        $imageSrc = 'images/sorciere\&.png';
+        $I = imageCreateFromPng($path\&.$imageSrc) 
+                or die('ERROR : cannot open the image');
+
+        // copy the image and save the result
+        $Ires = createCopy( $I )
+                or die('ERROR : cannot create the copy');
+
+.fi
+.PP
+ 
+.SS "difference ($I1, $I2)"
+.PP
+Compute the difference between two images'\&. \fBParameters:\fP
+.RS 4
+\fI$I1\fP ressource image 
+.br
+\fI$I2\fP ressource image 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$Idiff the difference of the two greyscale images
+.RE
+.PP
+An example of use 
+.PP
+.nf
+   // read the image on disk using the imageCreateFromPng GD function
+        $imageSrc = 'images/sorciere\&.png';
+        $I = imageCreateFromPng($path\&.$imageSrc) 
+                or die('ERROR : cannot open the image');
+
+        // copy the image and save the result
+        $Ires = createCopy( $I )
+                or die('ERROR : cannot create the copy');
+
+        // create a difference image
+        $Idiff = difference ($I,$Ires)
+                or die ('ERROR cannot compute the difference');
+
+        // save the difference image, if image are the same, this image should be black
+        $imageDiff = 'results/sorciereDiff\&.png';
+        imagePng( $Ires, $path\&.$imageDiff )
+                or die ('ERROR : cannot save the image');
+
+.fi
+.PP
+ 
+.SS "getPixelValues ($I, $i, $j)"
+.PP
+Get the 3 values of a pixel'\&. Return the 3 values of a pixel (i,j) using the gd function ImageColorAt (see gd library documentation for further details)
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$I\fP ressource image 
+.br
+\fI$i\fP int x-coordinate 
+.br
+\fI$j\fP int y-coordinate 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$red int the red componant 
+.PP
+$green int the green componant 
+.PP
+$blue int the blue componant
+.RE
+.PP
+Example : display the values of the pixel (10,5) 
+.PP
+.nf
+     // read the image on disk using the imageCreateFromPng GD function
+        $imageFile = 'images/sorciere\&.png'
+        $I = imageCreateFromPng($imagefile);
+
+        // pixel coordinates
+        $i = 10;
+        $j = 5;
+
+        // get the pixel R, G, and B values
+        list( $r , $g , $b ) = convertImage2Tab( $I );
+        
+        echo 'The red value is '\&.$r;
+        echo 'The green value is '\&.$g;
+        echo 'The blue value is '\&.$b;
+
+.fi
+.PP
+ 
+.SS "setPixelValues ($I, $i, $j, $r, $g, $b)"
+.PP
+Set the 3 values of a pixel'\&. Set the color of a pixel using 3 rgb values of a pixel (i,j) using the gd function ImageSetPixel and imageColorAllocate (see gd library documentation for further details)
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$I\fP ressource image 
+.br
+\fI$i\fP int x-coordinate 
+.br
+\fI$j\fP int y-coordinate 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$red int the red componant 
+.PP
+$green int the green componant 
+.PP
+$blue int the blue componant 
+.RE
+.PP
+
+.SS "tabCreateFromPng ($filename)"
+.PP
+store the image data in a table tabCreateFromPng($filename) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$filename\fP image path 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$T a 3D table containing the image information 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for phpTiSrcLib from the source code'\&.

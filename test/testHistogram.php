@@ -9,16 +9,14 @@
 	require_once("src/srcImageIo.php");
 	require_once("src/srcHistogram.php");
 	
-	
-	
 	?>
 
 <html>
 <body>
 
-<H1>Enhance image dynamics </H1>
+<H1>Test histogram</H1>
 <p>
-Convert an RGB image into a greyscale Image
+	Build histogram for an original image and its enhanced version
 </p>
 
 
@@ -39,7 +37,7 @@ Convert an RGB image into a greyscale Image
 	// save image on disk
 	$imageHist = "results/kyotoHist.png";
 	imagePng($Ihist,$path.$imageHist)
-	or die("cannot create the image res");
+		or die("cannot create the image res");
 		
 	// enhance the image extension
 	$Text=dynMaxExtension($T);

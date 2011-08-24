@@ -1,0 +1,168 @@
+\hypertarget{src_compression_8php}{
+\section{src/src\-Compression.php \-File \-Reference}
+\label{src_compression_8php}\index{src/src\-Compression.\-php@{src/src\-Compression.\-php}}
+}
+
+
+\-This files contains specific functions for the compression class.  
+
+
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{src_compression_8php_a96231faad934e6c0fdf54823c822a117}{quatreunun} (\$\-Y)
+\begin{DoxyCompactList}\small\item\em reduces the \-U and \-V planes by 2 \end{DoxyCompactList}\item 
+\hyperlink{src_compression_8php_ae4c8f783948eb61f0d01064790e274ad}{inv\-\_\-quatreunun} (\$quu)
+\begin{DoxyCompactList}\small\item\em recompose an yuv image from a reduced one \end{DoxyCompactList}\item 
+\hyperlink{src_compression_8php_a92b3926e343972ab8da5925349684e66}{jr\-Transform} (\$\-T)
+\begin{DoxyCompactList}\small\item\em time to frequency transform \end{DoxyCompactList}\item 
+\hyperlink{src_compression_8php_ae8da7e16d3d073d296cd7704cec9ee8d}{inv\-\_\-jr\-Transform} (\$\-J\-R\-T)
+\begin{DoxyCompactList}\small\item\em frequency to time transform \end{DoxyCompactList}\item 
+\hyperlink{src_compression_8php_acb0da5fc24811285cb411acaf7766220}{quantifie} (\$\-J\-R\-T, \$\-Q)
+\begin{DoxyCompactList}\small\item\em \-Quantify a frequency response with the quality factor \-Q. \end{DoxyCompactList}\item 
+\hyperlink{src_compression_8php_aca441015e4f76d9d3c4a9aabf228e36d}{requantifie} (\$\-J\-R\-T, \$\-Q)
+\begin{DoxyCompactList}\small\item\em \-Recompose the original amplitude of a quantifiedfrequency response with the quality factor \-Q. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-This files contains specific functions for the compression class. \begin{DoxyDate}{\-Date}
+21/08/2011 
+\end{DoxyDate}
+\begin{DoxyAuthor}{\-Author}
+\-Claire \-Dune, \-Jean \-René \-Tozza 
+\end{DoxyAuthor}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{src_compression_8php_ae8da7e16d3d073d296cd7704cec9ee8d}{
+\index{src\-Compression.\-php@{src\-Compression.\-php}!inv\-\_\-jr\-Transform@{inv\-\_\-jr\-Transform}}
+\index{inv\-\_\-jr\-Transform@{inv\-\_\-jr\-Transform}!srcCompression.php@{src\-Compression.\-php}}
+\subsubsection[{inv\-\_\-jr\-Transform}]{\setlength{\rightskip}{0pt plus 5cm}inv\-\_\-jr\-Transform (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-J\-R\-T}
+\end{DoxyParamCaption}
+)}}
+\label{src_compression_8php_ae8da7e16d3d073d296cd7704cec9ee8d}
+
+
+frequency to time transform 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-J\-R\-T} & the frequency representation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$ijrt is a 3\-D table where \-Y\-U\-V layers are 4\-:4\-:4 or 4\-:1\-:1; 
+\end{DoxyReturn}
+\hypertarget{src_compression_8php_ae4c8f783948eb61f0d01064790e274ad}{
+\index{src\-Compression.\-php@{src\-Compression.\-php}!inv\-\_\-quatreunun@{inv\-\_\-quatreunun}}
+\index{inv\-\_\-quatreunun@{inv\-\_\-quatreunun}!srcCompression.php@{src\-Compression.\-php}}
+\subsubsection[{inv\-\_\-quatreunun}]{\setlength{\rightskip}{0pt plus 5cm}inv\-\_\-quatreunun (
+\begin{DoxyParamCaption}
+\item[{\$}]{quu}
+\end{DoxyParamCaption}
+)}}
+\label{src_compression_8php_ae4c8f783948eb61f0d01064790e274ad}
+
+
+recompose an yuv image from a reduced one 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$quu} & a 3\-D table where the \-U and \-V planes are 4 times smaller \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$\-Y is a 3\-D table that represents an yuv image 
+\end{DoxyReturn}
+\hypertarget{src_compression_8php_a92b3926e343972ab8da5925349684e66}{
+\index{src\-Compression.\-php@{src\-Compression.\-php}!jr\-Transform@{jr\-Transform}}
+\index{jr\-Transform@{jr\-Transform}!srcCompression.php@{src\-Compression.\-php}}
+\subsubsection[{jr\-Transform}]{\setlength{\rightskip}{0pt plus 5cm}jr\-Transform (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-T}
+\end{DoxyParamCaption}
+)}}
+\label{src_compression_8php_a92b3926e343972ab8da5925349684e66}
+
+
+time to frequency transform 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-T} & is a 3\-D table where \-Y\-U\-V layers are 4\-:4\-:4 or 4\-:1\-:1; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$jrt the frequency response 
+\end{DoxyReturn}
+\hypertarget{src_compression_8php_acb0da5fc24811285cb411acaf7766220}{
+\index{src\-Compression.\-php@{src\-Compression.\-php}!quantifie@{quantifie}}
+\index{quantifie@{quantifie}!srcCompression.php@{src\-Compression.\-php}}
+\subsubsection[{quantifie}]{\setlength{\rightskip}{0pt plus 5cm}quantifie (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-J\-R\-T, }
+\item[{\$}]{\-Q}
+\end{DoxyParamCaption}
+)}}
+\label{src_compression_8php_acb0da5fc24811285cb411acaf7766220}
+
+
+\-Quantify a frequency response with the quality factor \-Q. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-J\-R\-T} & a frequency response \\
+\hline
+{\em \$\-Q} & a quality factor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$quan the quantified frequency response 
+\end{DoxyReturn}
+\hypertarget{src_compression_8php_a96231faad934e6c0fdf54823c822a117}{
+\index{src\-Compression.\-php@{src\-Compression.\-php}!quatreunun@{quatreunun}}
+\index{quatreunun@{quatreunun}!srcCompression.php@{src\-Compression.\-php}}
+\subsubsection[{quatreunun}]{\setlength{\rightskip}{0pt plus 5cm}quatreunun (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-Y}
+\end{DoxyParamCaption}
+)}}
+\label{src_compression_8php_a96231faad934e6c0fdf54823c822a117}
+
+
+reduces the \-U and \-V planes by 2 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-Y} & est un tableau 3\-D qui correspond aux 3 plans \-Y \-U \-V \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$quu tableau 3\-D dont les plan \-U et \-V sont 4 fois plus petit 
+\end{DoxyReturn}
+\hypertarget{src_compression_8php_aca441015e4f76d9d3c4a9aabf228e36d}{
+\index{src\-Compression.\-php@{src\-Compression.\-php}!requantifie@{requantifie}}
+\index{requantifie@{requantifie}!srcCompression.php@{src\-Compression.\-php}}
+\subsubsection[{requantifie}]{\setlength{\rightskip}{0pt plus 5cm}requantifie (
+\begin{DoxyParamCaption}
+\item[{\$}]{\-J\-R\-T, }
+\item[{\$}]{\-Q}
+\end{DoxyParamCaption}
+)}}
+\label{src_compression_8php_aca441015e4f76d9d3c4a9aabf228e36d}
+
+
+\-Recompose the original amplitude of a quantifiedfrequency response with the quality factor \-Q. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \$\-J\-R\-T} & a quantified frequency response \\
+\hline
+{\em \$\-Q} & a quality factor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\$quan the recomposed frequency response 
+\end{DoxyReturn}

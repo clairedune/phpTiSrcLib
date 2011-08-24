@@ -1,0 +1,133 @@
+.TH "src/srcHistogram.php" 3 "Wed Aug 24 2011" "phpTiSrcLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/srcHistogram.php \- 
+.PP
+Contrast related functions'\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBfindMin\fP ($T)"
+.br
+.RI "\fIfind the min value of greyscale image \fP"
+.ti -1c
+.RI "\fBfindMax\fP ($T)"
+.br
+.RI "\fIfind the max value of greyscale image \fP"
+.ti -1c
+.RI "\fBdynMaxExtension\fP ($T)"
+.br
+.RI "\fIExtend the image dynamic to [0,255]'\&. \fP"
+.ti -1c
+.RI "\fBcreateHistogram\fP ($T)"
+.br
+.RI "\fIComputes a greyscale image's histogram'\&. \fP"
+.ti -1c
+.RI "\fBcreateImageHistogram\fP ($hist, $width, $height)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contrast related functions'\&. 
+
+\fBDate:\fP
+.RS 4
+21/08/2011 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Claire Dune, Jean René Tozza
+.RE
+.PP
+Point to point transform function to enhance image contrast, build histogram, etc '\&.'\&.'\&. 
+.PP
+\fBWarning:\fP
+.RS 4
+The functions implemented in this file can only be used on greyscale images 
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "createHistogram ($T)"
+.PP
+Computes a greyscale image's histogram'\&. \fBParameters:\fP
+.RS 4
+\fI$T\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$hist
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+createHist is only defined for greyscale image ! 
+.RE
+.PP
+
+.SS "createImageHistogram ($hist, $width, $height)"\fBParameters:\fP
+.RS 4
+\fI$hist\fP an histogram 
+.br
+\fI$height\fP height of the histogram image 
+.br
+\fI$width\fP width of the histogramm image 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$ImageHist an image 
+.RE
+.PP
+
+.SS "dynMaxExtension ($T)"
+.PP
+Extend the image dynamic to [0,255]'\&. \fBParameters:\fP
+.RS 4
+\fI$T\fP greyscale image 3d table 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$Tres a greyscale image 3d table with extended dynamic 
+.RE
+.PP
+
+.SS "findMax ($T)"
+.PP
+find the max value of greyscale image \fBParameters:\fP
+.RS 4
+\fI$T\fP is a greyscale image 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$maxT 
+.RE
+.PP
+
+.SS "findMin ($T)"
+.PP
+find the min value of greyscale image \fBParameters:\fP
+.RS 4
+\fI$T\fP is a greyscale image 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+$minT 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for phpTiSrcLib from the source code'\&.

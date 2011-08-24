@@ -1,0 +1,52 @@
+\hypertarget{test_display_image_8php}{
+\section{test/test\-Display\-Image.php \-File \-Reference}
+\label{test_display_image_8php}\index{test/test\-Display\-Image.\-php@{test/test\-Display\-Image.\-php}}
+}
+
+
+\-Reads an image on the disk, creates a copy, saves it and displays both.  
+
+
+\subsection*{\-Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{test_display_image_8php_a9d054359a14d1487b820d8689d7c74b0}{
+{\bfseries \$image\-Src} = \char`\"{}/images/sorciere.\-png\char`\"{}}
+\label{test_display_image_8php_a9d054359a14d1487b820d8689d7c74b0}
+
+\item 
+{\bfseries \$\-I}
+\item 
+{\bfseries \$\-Ires}
+\item 
+\hypertarget{test_display_image_8php_adc04f2d61f4c0f32a2a3ec28ccb06a94}{
+{\bfseries \$image\-Copy} = \char`\"{}/results/sorciere.\-png\char`\"{}}
+\label{test_display_image_8php_adc04f2d61f4c0f32a2a3ec28ccb06a94}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Reads an image on the disk, creates a copy, saves it and displays both. 
+
+\subsection{\-Variable \-Documentation}
+\hypertarget{test_display_image_8php_a46163db64b57db961d4bb2ada2d923f9}{
+\index{test\-Display\-Image.\-php@{test\-Display\-Image.\-php}!\$\-I@{\$\-I}}
+\index{\$\-I@{\$\-I}!testDisplayImage.php@{test\-Display\-Image.\-php}}
+\subsubsection[{\$\-I}]{\setlength{\rightskip}{0pt plus 5cm}\$\-I}}
+\label{test_display_image_8php_a46163db64b57db961d4bb2ada2d923f9}
+{\bfseries \-Initial value\-:}
+\begin{DoxyCode}
+ imageCreateFromPng($path.$imageSrc) 
+                or die("cannot create the image")
+\end{DoxyCode}
+\hypertarget{test_display_image_8php_a80aa301a4743c402a88f89e1b981775d}{
+\index{test\-Display\-Image.\-php@{test\-Display\-Image.\-php}!\$\-Ires@{\$\-Ires}}
+\index{\$\-Ires@{\$\-Ires}!testDisplayImage.php@{test\-Display\-Image.\-php}}
+\subsubsection[{\$\-Ires}]{\setlength{\rightskip}{0pt plus 5cm}\$\-Ires}}
+\label{test_display_image_8php_a80aa301a4743c402a88f89e1b981775d}
+{\bfseries \-Initial value\-:}
+\begin{DoxyCode}
+ createCopy( $I )
+                or die("cannot create the copy")
+\end{DoxyCode}

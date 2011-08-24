@@ -1,0 +1,49 @@
+.TH "test/testDisplayImage.php" 3 "Tue Aug 23 2011" "phpTiSrcLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+test/testDisplayImage.php \- 
+.PP
+Reads an image on the disk, creates a copy, saves it and displays both'\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fB$imageSrc\fP = '/images/sorciere\&.png'"
+.br
+.ti -1c
+.RI "\fB$I\fP"
+.br
+.ti -1c
+.RI "\fB$Ires\fP"
+.br
+.ti -1c
+.RI "\fB$imageCopy\fP = '/results/sorciere\&.png'"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Reads an image on the disk, creates a copy, saves it and displays both'\&. 
+
+
+.SH "Variable Documentation"
+.PP 
+.SS "$I"\fBInitial value:\fP
+.PP
+.nf
+ imageCreateFromPng($path\&.$imageSrc) 
+                or die('cannot create the image')
+.fi
+.SS "$Ires"\fBInitial value:\fP
+.PP
+.nf
+ createCopy( $I )
+                or die('cannot create the copy')
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for phpTiSrcLib from the source code'\&.
